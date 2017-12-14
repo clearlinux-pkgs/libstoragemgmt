@@ -1,0 +1,10 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+openssl-dev
+yajl-dev
+chrpath
+pywbem
+six
+ply
+pyaml
+pyudev
