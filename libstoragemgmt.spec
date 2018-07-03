@@ -4,7 +4,7 @@
 #
 Name     : libstoragemgmt
 Version  : 1.6.2
-Release  : 10
+Release  : 11
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.6.2/libstoragemgmt-1.6.2.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.6.2/libstoragemgmt-1.6.2.tar.gz
 Summary  : Storage array management library
