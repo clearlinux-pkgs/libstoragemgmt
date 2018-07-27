@@ -4,7 +4,7 @@
 #
 Name     : libstoragemgmt
 Version  : 1.6.2
-Release  : 12
+Release  : 13
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.6.2/libstoragemgmt-1.6.2.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.6.2/libstoragemgmt-1.6.2.tar.gz
 Summary  : Storage array management library
@@ -14,6 +14,7 @@ Requires: libstoragemgmt-bin
 Requires: libstoragemgmt-python3
 Requires: libstoragemgmt-config
 Requires: libstoragemgmt-lib
+Requires: libstoragemgmt-license
 Requires: libstoragemgmt-man
 Requires: libstoragemgmt-python
 BuildRequires : chrpath
@@ -34,6 +35,7 @@ BuildRequires : pywbem
 BuildRequires : six
 BuildRequires : valgrind
 BuildRequires : yajl-dev
+Patch1: no-var-run.patch
 
 %description
 The libStorageMgmt library will provide a vendor agnostic open source storage
@@ -46,6 +48,7 @@ executing plug-ins in a separate process (lsmd).
 Summary: bin components for the libstoragemgmt package.
 Group: Binaries
 Requires: libstoragemgmt-config
+Requires: libstoragemgmt-license
 Requires: libstoragemgmt-man
 
 %description bin
@@ -74,9 +77,18 @@ dev components for the libstoragemgmt package.
 %package lib
 Summary: lib components for the libstoragemgmt package.
 Group: Libraries
+Requires: libstoragemgmt-license
 
 %description lib
 lib components for the libstoragemgmt package.
+
+
+%package license
+Summary: license components for the libstoragemgmt package.
+Group: Default
+
+%description license
+license components for the libstoragemgmt package.
 
 
 %package man
@@ -107,13 +119,14 @@ python3 components for the libstoragemgmt package.
 
 %prep
 %setup -q -n libstoragemgmt-1.6.2
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1526648741
+export SOURCE_DATE_EPOCH=1532708707
 %configure --disable-static --with-python3
 make  %{?_smp_mflags}
 
@@ -125,8 +138,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1526648741
+export SOURCE_DATE_EPOCH=1532708707
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/libstoragemgmt
+cp COPYING.LIB %{buildroot}/usr/share/doc/libstoragemgmt/COPYING.LIB
 %make_install
 
 %files
@@ -184,6 +199,10 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/lib64/libstoragemgmt.so.1
 /usr/lib64/libstoragemgmt.so.1.6.2
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/libstoragemgmt/COPYING.LIB
 
 %files man
 %defattr(-,root,root,-)
