@@ -1,6 +1,7 @@
 libstoragemgmt.so.1:lsm_access_group_create
 libstoragemgmt.so.1:lsm_access_group_delete
 libstoragemgmt.so.1:lsm_access_group_id_get
+libstoragemgmt.so.1:lsm_access_group_init_type_get
 libstoragemgmt.so.1:lsm_access_group_initiator_add
 libstoragemgmt.so.1:lsm_access_group_initiator_delete
 libstoragemgmt.so.1:lsm_access_group_initiator_id_get
