@@ -4,7 +4,7 @@
 #
 Name     : libstoragemgmt
 Version  : 1.7.1
-Release  : 16
+Release  : 17
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.1/libstoragemgmt-1.7.1.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.1/libstoragemgmt-1.7.1.tar.gz
 Summary  : Storage array management library
@@ -149,7 +149,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541646526
+export SOURCE_DATE_EPOCH=1542404021
 %configure --disable-static --with-python3
 make  %{?_smp_mflags}
 
@@ -161,7 +161,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1541646526
+export SOURCE_DATE_EPOCH=1542404021
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libstoragemgmt
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/COPYING.LIB
