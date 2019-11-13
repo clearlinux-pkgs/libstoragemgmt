@@ -4,7 +4,7 @@
 #
 Name     : libstoragemgmt
 Version  : 1.7.3
-Release  : 23
+Release  : 24
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Summary  : Storage array management library
@@ -26,7 +26,6 @@ BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(libconfig)
 BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(libxml-2.0)
-BuildRequires : pkgconfig(python2)
 BuildRequires : pkgconfig(python3)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : ply
@@ -52,7 +51,6 @@ Group: Binaries
 Requires: libstoragemgmt-libexec = %{version}-%{release}
 Requires: libstoragemgmt-config = %{version}-%{release}
 Requires: libstoragemgmt-license = %{version}-%{release}
-Requires: libstoragemgmt-man = %{version}-%{release}
 Requires: libstoragemgmt-services = %{version}-%{release}
 
 %description bin
@@ -73,6 +71,7 @@ Group: Development
 Requires: libstoragemgmt-lib = %{version}-%{release}
 Requires: libstoragemgmt-bin = %{version}-%{release}
 Provides: libstoragemgmt-devel = %{version}-%{release}
+Requires: libstoragemgmt = %{version}-%{release}
 
 %description dev
 dev components for the libstoragemgmt package.
@@ -148,23 +147,28 @@ services components for the libstoragemgmt package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1550423642
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1573683420
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --with-python3
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1550423642
+export SOURCE_DATE_EPOCH=1573683420
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libstoragemgmt
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/COPYING.LIB
+cp %{_builddir}/libstoragemgmt-1.7.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/448ab4f9f4c0c4f5b7eea423fabe48c1aba4f96f
 %make_install
 
 %files
@@ -435,7 +439,7 @@ cp COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/COPYING.LI
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libstoragemgmt/COPYING.LIB
+/usr/share/package-licenses/libstoragemgmt/448ab4f9f4c0c4f5b7eea423fabe48c1aba4f96f
 
 %files man
 %defattr(0644,root,root,0755)
