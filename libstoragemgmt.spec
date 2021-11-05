@@ -4,10 +4,10 @@
 #
 Name     : libstoragemgmt
 Version  : 1.7.3
-Release  : 35
+Release  : 36
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
-Summary  : A library for storage management
+Summary  : Storage array management library
 Group    : Development/Tools
 License  : LGPL-2.1 LGPL-2.1+
 Requires: libstoragemgmt-bin = %{version}-%{release}
@@ -71,7 +71,6 @@ Group: Development
 Requires: libstoragemgmt-lib = %{version}-%{release}
 Requires: libstoragemgmt-bin = %{version}-%{release}
 Provides: libstoragemgmt-devel = %{version}-%{release}
-Requires: libstoragemgmt = %{version}-%{release}
 Requires: libstoragemgmt = %{version}-%{release}
 
 %description dev
@@ -150,12 +149,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583169380
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1636124850
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static --with-python3
 make  %{?_smp_mflags}
@@ -168,7 +166,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1583169380
+export SOURCE_DATE_EPOCH=1636124850
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libstoragemgmt
 cp %{_builddir}/libstoragemgmt-1.7.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/448ab4f9f4c0c4f5b7eea423fabe48c1aba4f96f
