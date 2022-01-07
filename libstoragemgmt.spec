@@ -4,7 +4,7 @@
 #
 Name     : libstoragemgmt
 Version  : 1.7.3
-Release  : 37
+Release  : 38
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Summary  : Storage array management library
@@ -28,12 +28,8 @@ BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(libxml-2.0)
 BuildRequires : pkgconfig(python3)
 BuildRequires : pkgconfig(sqlite3)
-BuildRequires : ply
 BuildRequires : procps-ng
-BuildRequires : pyaml
-BuildRequires : pyudev
-BuildRequires : pywbem
-BuildRequires : six
+BuildRequires : pypi(pywbem)
 BuildRequires : valgrind
 BuildRequires : yajl-dev
 Patch1: no-var-run.patch
@@ -149,7 +145,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1636124850
+export SOURCE_DATE_EPOCH=1641549376
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -166,7 +162,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1636124850
+export SOURCE_DATE_EPOCH=1641549376
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libstoragemgmt
 cp %{_builddir}/libstoragemgmt-1.7.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/448ab4f9f4c0c4f5b7eea423fabe48c1aba4f96f
