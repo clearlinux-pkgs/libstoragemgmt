@@ -4,12 +4,12 @@
 #
 Name     : libstoragemgmt
 Version  : 1.7.3
-Release  : 42
+Release  : 43
 URL      : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Source0  : https://github.com/libstorage/libstoragemgmt/releases/download/1.7.3/libstoragemgmt-1.7.3.tar.gz
 Summary  : Storage array management library
 Group    : Development/Tools
-License  : LGPL-2.1 LGPL-2.1+
+License  : LGPL-2.0+ LGPL-2.1
 Requires: libstoragemgmt-bin = %{version}-%{release}
 Requires: libstoragemgmt-config = %{version}-%{release}
 Requires: libstoragemgmt-lib = %{version}-%{release}
@@ -146,7 +146,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1658940537
+export SOURCE_DATE_EPOCH=1666721864
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -163,10 +163,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make check || :
 
 %install
-export SOURCE_DATE_EPOCH=1658940537
+export SOURCE_DATE_EPOCH=1666721864
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libstoragemgmt
-cp %{_builddir}/libstoragemgmt-%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/448ab4f9f4c0c4f5b7eea423fabe48c1aba4f96f
+cp %{_builddir}/libstoragemgmt-%{version}/COPYING.LIB %{buildroot}/usr/share/package-licenses/libstoragemgmt/448ab4f9f4c0c4f5b7eea423fabe48c1aba4f96f || :
 %make_install
 
 %files
