@@ -1,5 +1,112 @@
 News for libStorageMgmt
 
+1.9.6: Nov 8 2022
+    * Correct run directory
+
+1.9.5: Oct 14 2022
+    * Misc. bug fixes including one for failure to build on i386
+    * Add a udev rule entry for ALUA state changes
+
+1.9.4: Apr 7 2022
+    * Correction for udev events on SCSI vports
+    * Add hidden developer option "--fork_plugin" to fork and exec
+      plugin directly from lsmcli
+    * Misc. code improvements/bug fixes
+       - remove libxml2 dependency
+       - coverity corrections
+       - remove dlerror & library requirement
+       - remove visibility of some symbols that are private
+
+1.9.3: Nov 16 2021
+    * Fix endianess issues for big endian
+    * Fix megaraid plugin for volume_raid_info for RAID10, add test
+      - https://bugzilla.redhat.com/show_bug.cgi?id=2018657
+    * Megaraid, changes to support latest storcli utility
+    * Misc. CI test improvements, code clean-up
+
+1.9.2: May 14 2021
+    * Remove OpenSSL usage as OpenSSL 3.0 is deprecating MD5
+
+1.9.1: Apr 20 2021
+    * Correct sim plugin install location
+      - https://github.com/libstorage/libstoragemgmt/pull/463
+
+1.9.0: Mar 24 2021
+    * Add NVMe device health check
+      - https://github.com/libstorage/libstoragemgmt/issues/265
+    * Correct lsm_disk_record_alloc does not have plugin_data
+      - https://github.com/libstorage/libstoragemgmt/issues/68
+    * Limit lsmd to running a single instance against same socket dir
+      - https://github.com/libstorage/libstoragemgmt/issues/398
+
+1.8.8: Dec 15 2020
+    * Remove NetApp ontap plugin
+    * Remove Nexentastor nstor plugin
+    * Re-orgainize plugins
+      - https://github.com/libstorage/libstoragemgmt/issues/440
+
+1.8.7: Dec 2 2020
+    * Fix for Areca RAID cards
+      - https://github.com/libstorage/libstoragemgmt/pull/444
+    * Static code analysis fixes
+      - https://github.com/libstorage/libstoragemgmt/pull/441
+
+1.8.6: Nov 2 2020
+    * Hpsa bug fixes
+      - https://github.com/libstorage/libstoragemgmt/issues/419
+      - https://github.com/libstorage/libstoragemgmt/issues/420
+    * Change lsmcli output for missing lsmd (daemon)
+      ref. https://bugzilla.redhat.com/show_bug.cgi?id=1872753
+
+1.8.5: Aug 10 2020
+    * Fix compile issue with check >= 0.15.0
+    * Fix travis CI issues
+    * Remove problematic language
+
+1.8.4: May 21 2020
+    * Bug fix for megaraid: correctly override vpd83 when WWN is NA
+    * Re-work configure to be better about self configuration
+    * Updates to travis CI docker script
+    * Use jsmn JSON parser, remove YAJL and nlohmann
+    * Make some of the simulator disks much larger
+    * Introduce cformat makefile target to re-format C/C++ code
+      requires clang-format
+
+1.8.3: Feb 12 2020
+    * Bug fix for arcconf
+      - https://github.com/libstorage/libstoragemgmt/issues/410
+    * Update nlohmann JSON
+
+1.8.2: Dec 9 2019
+    * Compile fixes for Alpine Linux
+      - https://github.com/libstorage/libstoragemgmt/issues/403
+      - https://github.com/libstorage/libstoragemgmt/issues/402
+      - https://github.com/libstorage/libstoragemgmt/issues/401
+    * Don't orphan lsmd process when displaying help
+      - https://github.com/libstorage/libstoragemgmt/pull/399
+
+1.8.1: May 24 2019
+    * Bug fix
+      - https://bugzilla.redhat.com/show_bug.cgi?id=1585169
+
+1.8.0: Apr 16 2019
+    * Bug fixes
+      - Invalid vpd 0x83 value,
+        https://github.com/libstorage/libstoragemgmt/issues/376
+      - Fix duplicate files in debian packaging
+      - Add simple test integration script
+      - Unable to control some slot LEDs via SES
+        https://github.com/libstorage/libstoragemgmt/issues/383
+      - Numerous corrections for arcconf plugin
+      - Correct deprecated python & perl usage
+
+    * Enhancements
+      - arcconf
+        + pool member info
+        + volume raid info
+        + volume LED (on/off)
+        + volume enable
+
 1.7.3: Feb 15 2019
     * Bug fixes
       - https://bugzilla.redhat.com/show_bug.cgi?id=1670077
@@ -47,7 +154,7 @@ News for libStorageMgmt
     * lsmd: Fix crash when plugin named as _lsmplugin.
     * Fix GCC 8 compiling warnings.
     * Add support of Debian/Ubuntu packaging.
-    * User case tools for unused LUN scan and local storage sanity check.
+    * User case tools for unused LUN scan and local basic storage check.
 
 1.6.1: Oct 31: 2017
     * Add support of RHEL/Centos 6 back.
