@@ -57,7 +57,9 @@ libstoragemgmt.so.1:lsm_disk_location_get
 libstoragemgmt.so.1:lsm_disk_location_set
 libstoragemgmt.so.1:lsm_disk_name_get
 libstoragemgmt.so.1:lsm_disk_number_of_blocks_get
+libstoragemgmt.so.1:lsm_disk_plugin_data_get
 libstoragemgmt.so.1:lsm_disk_record_alloc
+libstoragemgmt.so.1:lsm_disk_record_alloc_pd
 libstoragemgmt.so.1:lsm_disk_record_array_alloc
 libstoragemgmt.so.1:lsm_disk_record_array_free
 libstoragemgmt.so.1:lsm_disk_record_copy
