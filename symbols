@@ -126,6 +126,16 @@ libstoragemgmt.so.1:lsm_job_status_get
 libstoragemgmt.so.1:lsm_job_status_pool_get
 libstoragemgmt.so.1:lsm_job_status_ss_get
 libstoragemgmt.so.1:lsm_job_status_volume_get
+libstoragemgmt.so.1:lsm_led_handle_free
+libstoragemgmt.so.1:lsm_led_handle_get
+libstoragemgmt.so.1:lsm_led_slot_device
+libstoragemgmt.so.1:lsm_led_slot_id
+libstoragemgmt.so.1:lsm_led_slot_iterator_free
+libstoragemgmt.so.1:lsm_led_slot_iterator_get
+libstoragemgmt.so.1:lsm_led_slot_iterator_reset
+libstoragemgmt.so.1:lsm_led_slot_next
+libstoragemgmt.so.1:lsm_led_slot_status_get
+libstoragemgmt.so.1:lsm_led_slot_status_set
 libstoragemgmt.so.1:lsm_local_disk_fault_led_off
 libstoragemgmt.so.1:lsm_local_disk_fault_led_on
 libstoragemgmt.so.1:lsm_local_disk_health_status_get

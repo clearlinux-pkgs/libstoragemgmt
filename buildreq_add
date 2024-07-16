@@ -3,4 +3,5 @@
 chrpath
 openssl-dev
 pypi(pywbem)
+sg3_utils-dev
 yajl-dev

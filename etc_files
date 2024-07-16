@@ -1,0 +1,15 @@
+/etc/:
+/etc/bash_completion.d:
+/etc/lsm/pluginconf.d:
+/etc/lsm:
+arcconf.conf
+bash_completion.d
+hpsa.conf
+local.conf
+lsm
+lsmcli
+lsmd.conf
+megaraid.conf
+nfs.conf
+pluginconf.d
+sim.conf
